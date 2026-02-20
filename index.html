@@ -86,16 +86,16 @@ audio {
   <div class="sidebar">
     <h2>bear's mixtape ♡</h2>
 
-    <div class="track" onclick="playSong('song1.mp3')">01 — track one</div>
-    <div class="track" onclick="playSong('song2.mp3')">02 — track two</div>
-    <div class="track" onclick="playSong('song3.mp3')">03 — track three</div>
-    <div class="track" onclick="playSong('song4.mp3')">04 — track four</div>
-    <div class="track" onclick="playSong('song5.mp3')">05 — track five</div>
-    <div class="track" onclick="playSong('song6.mp3')">06 — track six</div>
-    <div class="track" onclick="playSong('song7.mp3')">07 — track seven</div>
-    <div class="track" onclick="playSong('song8.mp3')">08 — track eight</div>
-    <div class="track" onclick="playSong('song9.mp3')">09 — track nine</div>
-    <div class="track" onclick="playSong('song10.mp3')">10 — track ten</div>
+    <div class="track" onclick="playSong(0)">01 — track one</div>
+    <div class="track" onclick="playSong(1)">02 — track two</div>
+    <div class="track" onclick="playSong(2)">03 — track three</div>
+    <div class="track" onclick="playSong(3)">04 — track four</div>
+    <div class="track" onclick="playSong(4)">05 — track five</div>
+    <div class="track" onclick="playSong(5)">06 — track six</div>
+    <div class="track" onclick="playSong(6)">07 — track seven</div>
+    <div class="track" onclick="playSong(7)">08 — track eight</div>
+    <div class="track" onclick="playSong(8)">09 — track nine</div>
+    <div class="track" onclick="playSong(9)">10 — track ten</div>
   </div>
 
   <div class="main">
@@ -106,11 +106,45 @@ audio {
 </div>
 
 <script>
-function playSong(file) {
-  const player = document.getElementById("player");
-  player.src = file;
+const songs = [
+  "song1.mp3",
+  "song2.mp3",
+  "song3.mp3",
+  "song4.mp3",
+  "song5.mp3",
+  "song6.mp3",
+  "song7.mp3",
+  "song8.mp3",
+  "song9.mp3",
+  "song10.mp3"
+];
+
+let currentSong = 0;
+const player = document.getElementById("player");
+
+// Load first song automatically
+window.addEventListener("load", () => {
+  player.src = songs[0];
+  player.play().catch(() => {
+    console.log("Autoplay blocked until user interaction.");
+  });
+});
+
+// When a track button is clicked
+function playSong(index) {
+  currentSong = index;
+  player.src = songs[currentSong];
   player.play();
 }
+
+// Auto play next song when one ends
+player.addEventListener("ended", () => {
+  currentSong++;
+  if (currentSong < songs.length) {
+    player.src = songs[currentSong];
+    player.play();
+  }
+});
 </script>
 
 </body>
