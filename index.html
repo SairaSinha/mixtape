@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>our mixtape ♡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  background: linear-gradient(135deg, #ffd6e8, #ffeccf);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  width: 90%;
+  max-width: 750px;
+  overflow: hidden;
+}
+
+/* Left side - Track list */
+.sidebar {
+  width: 40%;
+  background: #fff0f6;
+  padding: 25px;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.track {
+  background: white;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.track:hover {
+  background: #ffd6e8;
+}
+
+/* Right side - Album */
+.main {
+  width: 60%;
+  padding: 25px;
+  text-align: center;
+}
+
+.album-image {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+audio {
+  width: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="sidebar">
+    <h2>our tracks ♡</h2>
+    <div class="track" onclick="playSong('song1.mp3')">01 — first memory</div>
+    <div class="track" onclick="playSong('song2.mp3')">02 — late night calls</div>
+    <div class="track" onclick="playSong('song3.mp3')">03 — our chaos</div>
+  </div>
+
+  <div class="main">
+    <!-- Replace mixtape.jpg with your image -->
+    <img src="mixtape.jpg" class="album-image">
+    <audio id="player" controls></audio>
+  </div>
+
+</div>
+
+<script>
+function playSong(file) {
+  const player = document.getElementById("player");
+  player.src = file;
+  player.play();
+}
+</script>
+
+</body>
+</html>
