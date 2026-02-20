@@ -13,60 +13,63 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .container {
   display: flex;
+  width: 900px;
+  height: 550px;
   background: white;
   border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  width: 90%;
-  max-width: 750px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
   overflow: hidden;
 }
 
-/* Left side - Track list */
+/* LEFT SIDE - FULL TRACK LIST */
 .sidebar {
-  width: 40%;
+  width: 250px;
   background: #fff0f6;
   padding: 25px;
+  overflow-y: auto;
 }
 
 .sidebar h2 {
   margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .track {
-  background: white;
-  margin: 10px 0;
   padding: 10px;
-  border-radius: 12px;
+  margin-bottom: 8px;
+  background: white;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.2s;
   font-size: 14px;
+  transition: 0.2s;
 }
 
 .track:hover {
   background: #ffd6e8;
 }
 
-/* Right side - Album */
+/* CENTER */
 .main {
-  width: 60%;
-  padding: 25px;
-  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .album-image {
-  width: 100%;
-  max-width: 250px;
-  border-radius: 15px;
-  margin-bottom: 20px;
+  width: 300px;
+  border-radius: 20px;
+  margin-bottom: 25px;
 }
 
 audio {
-  width: 100%;
+  width: 60%;
 }
 </style>
 </head>
@@ -76,14 +79,22 @@ audio {
 <div class="container">
 
   <div class="sidebar">
-    <h2>our tracks ♡</h2>
-    <div class="track" onclick="playSong('song1.mp3')">01 — first memory</div>
-    <div class="track" onclick="playSong('song2.mp3')">02 — late night calls</div>
-    <div class="track" onclick="playSong('song3.mp3')">03 — our chaos</div>
+    <h2>our mixtape ♡</h2>
+
+    <div class="track" onclick="playSong('song1.mp3')">01 — track one</div>
+    <div class="track" onclick="playSong('song2.mp3')">02 — track two</div>
+    <div class="track" onclick="playSong('song3.mp3')">03 — track three</div>
+    <div class="track" onclick="playSong('song4.mp3')">04 — track four</div>
+    <div class="track" onclick="playSong('song5.mp3')">05 — track five</div>
+    <div class="track" onclick="playSong('song6.mp3')">06 — track six</div>
+    <div class="track" onclick="playSong('song7.mp3')">07 — track seven</div>
+    <div class="track" onclick="playSong('song8.mp3')">08 — track eight</div>
+    <div class="track" onclick="playSong('song9.mp3')">09 — track nine</div>
+    <div class="track" onclick="playSong('song10.mp3')">10 — track ten</div>
   </div>
 
   <div class="main">
-    <!-- Replace mixtape.jpg with your image -->
+    <!-- Replace with your album image -->
     <img src="mixtape.jpg" class="album-image">
     <audio id="player" controls></audio>
   </div>
